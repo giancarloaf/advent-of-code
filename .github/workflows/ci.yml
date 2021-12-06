@@ -12,10 +12,10 @@ jobs:
             java: 8
           - os: ubuntu-latest
             java: 11
-          - os: windows-latest
-            java: 8
-          - os: windows-latest
-            java: 11
+#           - os: windows-latest
+#             java: 8
+#           - os: windows-latest
+#             java: 11
     runs-on: ${{matrix.os}}
     steps:
     - name: Checkout
@@ -30,7 +30,7 @@ jobs:
     - name: Build and Test
       run: sbt -v +test
     - name: Style/Linting
-      run: sbt -v +scalastyle
+      run: sbt -v scalastyle test:scalastyle
     - name: Cleanup before cache
       shell: bash
       run: |
