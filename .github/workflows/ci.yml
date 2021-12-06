@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        includes:
+        include:
           - os: ubuntu-latest
             java: 8
           - os: ubuntu-latest
