@@ -1,6 +1,6 @@
 import scala.io.Source
 
-object day1 {
+object Day1 {
   def main(args: Array[String]): Unit = {
     print("solutions: ")
     println(
@@ -23,8 +23,6 @@ object day1 {
 
   def countReductions(input: Seq[Int], window: Int = 1): Int = {
     val slices: Seq[Seq[Int]] = input.sliding(window).toSeq
-    slices.zip(slices.tail)
-      .map{ case (l,r) => r.sum > l.sum }
-      .count(_ == true)
+    slices.zip(slices.tail).count{ case (l,r) => r.sum > l.sum }
   }
 }

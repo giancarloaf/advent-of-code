@@ -1,8 +1,8 @@
-import day2._
+import Day2._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-class day2Test extends AnyFlatSpec with Matchers {
+class Day2Test extends AnyFlatSpec with Matchers {
 
   "Moving up 1" should "make y negative" in {
     Point(0,0).move("up", 1) shouldEqual Point(0, -1)
