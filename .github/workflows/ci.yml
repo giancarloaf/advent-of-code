@@ -4,6 +4,9 @@ on:
   push:
 jobs:
   test:
+    defaults:
+      run:
+        working-directory: advent-of-code-2021
     strategy:
       fail-fast: false
       matrix:
