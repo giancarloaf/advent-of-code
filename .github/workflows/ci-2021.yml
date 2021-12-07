@@ -1,16 +1,18 @@
 name: CI
+env:
+  WORK_DIR: advent-of-code-2021
 on:
   pull_request:
     paths:
-      - 'advent-of-code-2021/**'
+      - '${{env.WORK_DIR}}/**'
   push:
     paths:
-      - 'advent-of-code-2021/**'
+      - '${{env.WORK_DIR}}/**'
 jobs:
   test:
     defaults:
       run:
-        working-directory: advent-of-code-2021
+        working-directory: ${{env.WORK_DIR}}
     strategy:
       fail-fast: false
       matrix:
