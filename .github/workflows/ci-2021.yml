@@ -1,7 +1,11 @@
 name: CI
 on:
   pull_request:
+    paths:
+      - 'advent-of-code-2021/**'
   push:
+    paths:
+      - 'advent-of-code-2021/**'
 jobs:
   test:
     defaults:
