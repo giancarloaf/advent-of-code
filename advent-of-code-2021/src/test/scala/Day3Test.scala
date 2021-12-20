@@ -31,9 +31,11 @@ class Day3Test extends AnyFlatSpec with Matchers {
     Integer.parseInt(epsilon(input), 2) shouldEqual 9
   }
   it should "produce a power consumption of 198" in {
-    val g = Integer.parseInt(gamma(input), 2)
-    val e = Integer.parseInt(epsilon(input), 2)
-    g * e shouldEqual 198
+    powerConsumption(input) shouldEqual 198
+  }
+
+  "Part 1 solution" should "equal ???" in {
+    solutionPart1 shouldEqual 3429254
   }
 
 }
