@@ -4,10 +4,10 @@ env:
 on:
   pull_request:
     paths:
-      - ${{env.WORK_DIR}}/**
+      - advent-of-code-2021/**
   push:
     paths:
-      - ${{env.WORK_DIR}}/**
+      - advent-of-code-2021/**
 jobs:
   test:
     defaults:
