@@ -37,7 +37,7 @@ object Day2 {
       }
   }
 
-  def solutionPart2: Any = {
+  def solutionPart2: Int = {
     val input = Source.fromResource("2/input").getLines().toSeq
     val destination = carryOrdersPart2(input)
     destination.x * destination.y
