@@ -8,7 +8,8 @@ ThisBuild / organizationName := "example"
 lazy val root = (project in file("."))
   .settings(
     name := "advent-of-code-2021",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += scalaTest % Test,
+    Test / logBuffered := false // recommendation from scalatest docs
   )
 
 //testing
