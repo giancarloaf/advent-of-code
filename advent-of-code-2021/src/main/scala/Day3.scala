@@ -1,6 +1,16 @@
 import scala.io.Source
 
 object Day3 {
+  def main(args: Array[String]): Unit = {
+    println(s"Day 3 Part 1 solution: ${solutionPart1}")
+    println(s"Day 3 Part 2 solution: ${solutionPart2}")
+  }
+
+  def solutionPart2: Int = {
+    val input = Source.fromResource("3/input").getLines().toSeq
+    lifeSupportRating(input)
+  }
+
   def solutionPart1: Int = {
     val input = Source.fromResource("3/input").getLines().toSeq
     powerConsumption(input)

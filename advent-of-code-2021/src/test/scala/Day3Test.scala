@@ -48,4 +48,7 @@ class Day3Test extends AnyFlatSpec with Matchers {
     lifeSupportRating(input) shouldEqual 230
   }
 
+  "Part 2 solution" should "equal 5410338" in {
+    solutionPart2 shouldEqual 5410338
+  }
 }
