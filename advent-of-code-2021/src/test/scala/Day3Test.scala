@@ -34,8 +34,18 @@ class Day3Test extends AnyFlatSpec with Matchers {
     powerConsumption(input) shouldEqual 198
   }
 
-  "Part 1 solution" should "equal ???" in {
+  "Part 1 solution" should "equal 3429254" in {
     solutionPart1 shouldEqual 3429254
+  }
+
+  "Part 2 example" should "produce oxygen generator rating binary of 10111" in {
+    oxygenGeneratorRating(input) shouldEqual "10111"
+  }
+  it should "produce CO2 scrubber rating binary of 01010" in {
+    c02ScrubberRating(input) shouldEqual "01010"
+  }
+  it should "produce a life support rating of 230" in {
+    lifeSupportRating(input) shouldEqual 230
   }
 
 }

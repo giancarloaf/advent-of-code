@@ -6,6 +6,34 @@ object Day3 {
     powerConsumption(input)
   }
 
+  def lifeSupportRating(input: Seq[String]): Int = {
+    val o2 = Integer.parseInt(oxygenGeneratorRating(input), 2)
+    val co2 = Integer.parseInt(c02ScrubberRating(input), 2)
+    o2 * co2
+  }
+
+  def c02ScrubberRating(input: Seq[String]): String = {
+    commonValuesByBits(input, mostSignificantValue = '0', leastSignificantValue = '1')
+  }
+
+  def oxygenGeneratorRating(input: Seq[String]): String = {
+    commonValuesByBits(input, mostSignificantValue = '1', leastSignificantValue = '0')
+  }
+
+  // helper method
+  private def commonValuesByBits(input: Seq[String], mostSignificantValue: Char, leastSignificantValue: Char): String = {
+    val ret = (0 until input.head.length).foldLeft(input) {
+      // iterate while there are still items remaining
+      case (intermediate, i) if intermediate.size > 1 =>
+        val ones = intermediate.map(_.toCharArray.map(_.asDigit)).transpose.map(_.sum)
+        val zeros = ones.map(o => intermediate.length - o)
+        intermediate.filter(_(i) == (if (ones(i) >= zeros(i)) mostSignificantValue else leastSignificantValue))
+      // return early if only one value remaining
+      case (intermediate, _) => intermediate
+    }
+    ret.head
+  }
+
   def powerConsumption(input: Seq[String]): Int = {
     val g = Integer.parseInt(gamma(input), 2)
     val e = Integer.parseInt(epsilon(input), 2)
