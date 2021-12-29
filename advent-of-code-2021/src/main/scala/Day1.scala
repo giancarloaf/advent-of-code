@@ -12,12 +12,12 @@ object Day1 {
   }
 
   def solutionPart1: Int = {
-    val input = Source.fromResource("1/input").getLines().map(_.toInt).toSeq
+    val input = Source.fromResource("day1").getLines().map(_.toInt).toSeq
     countReductions(input)
   }
 
   def solutionPart2: Int = {
-    val input = Source.fromResource("1/input").getLines().map(_.toInt).toSeq
+    val input = Source.fromResource("day1").getLines().map(_.toInt).toSeq
     countReductions(input, 3)
   }
 

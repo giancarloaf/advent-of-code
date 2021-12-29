@@ -7,12 +7,12 @@ object Day3 {
   }
 
   def solutionPart2: Int = {
-    val input = Source.fromResource("3/input").getLines().toSeq
+    val input = Source.fromResource("day3").getLines().toSeq
     lifeSupportRating(input)
   }
 
   def solutionPart1: Int = {
-    val input = Source.fromResource("3/input").getLines().toSeq
+    val input = Source.fromResource("day3").getLines().toSeq
     powerConsumption(input)
   }
 
