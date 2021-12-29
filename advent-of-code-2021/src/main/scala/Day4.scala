@@ -8,6 +8,11 @@ object Day4 {
     scoreFirstWinner(draws, cards)
   }
 
+  def solutionPart2: Int = {
+    val (draws, cards) = parseInput
+    scoreLastWinner(draws, cards)
+  }
+
   private def parseInput: (List[Int], Seq[Card]) = {
     val input = Source.fromResource("day4").getLines().toSeq
     val draws = input.head.split(",").map(_.toInt).toList
