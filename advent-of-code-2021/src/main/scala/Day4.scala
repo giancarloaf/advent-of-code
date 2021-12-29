@@ -5,7 +5,7 @@ import scala.util.Random
 object Day4 {
   def solutionPart1: Int = {
     val (draws, cards) = parseInput
-    score(draws, cards)
+    scoreFirstWinner(draws, cards)
   }
 
   private def parseInput: (List[Int], Seq[Card]) = {
@@ -22,7 +22,21 @@ object Day4 {
     (draws, cards)
   }
 
-  def score(draws: List[Int], cards: Seq[Card]): Int = {
+  def scoreLastWinner(draws: List[Int], cards: Seq[Card]): Int = {
+    val game = new Game(draws)
+    var winners = Seq.empty[Card]
+
+    while (winners.size != cards.size) {
+      game.drawNumber
+      winners = winners ++ (cards.toSet -- winners).filter(_.hasWon(game.drawnNumbers))
+    }
+
+    val sumWinner = winners.last.sumUnmarked(game.drawnNumbers)
+    val lastBall = game.drawnNumbers.last
+    sumWinner * lastBall
+  }
+
+  def scoreFirstWinner(draws: List[Int], cards: Seq[Card]): Int = {
     val game = new Game(draws)
     var winners = Seq.empty[Card]
 
@@ -31,9 +45,9 @@ object Day4 {
       winners = cards.filter(_.hasWon(game.drawnNumbers))
     }
 
-    val sumWinners = winners.map(_.sumUnmarked(game.drawnNumbers)).sum
+    val sumWinner = winners.head.sumUnmarked(game.drawnNumbers)
     val lastBall = game.drawnNumbers.last
-    sumWinners * lastBall
+    sumWinner * lastBall
   }
 
   case class Card(values: Int*) {

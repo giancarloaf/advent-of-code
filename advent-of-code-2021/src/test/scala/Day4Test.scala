@@ -33,11 +33,14 @@ class Day4Test extends AnyFlatSpec with Matchers {
 
 
   "Part 1 example" should "produce a score of 4512" in {
-    score(draws, cards) shouldEqual 4512
+    scoreFirstWinner(draws, cards) shouldEqual 4512
   }
 
   "Part 1 solution" should "produce a score of 33462" in {
-    val s = solutionPart1
-    solutionPart1 shouldEqual 0
+    solutionPart1 shouldEqual 33462
+  }
+
+  "Part 2 example" should "produce a score of 1924" in {
+    scoreLastWinner(draws, cards) shouldEqual 1924
   }
 }
